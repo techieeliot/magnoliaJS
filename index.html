@@ -8,8 +8,10 @@
 </head>
 <body>
 
-    <my-counter></my-counter>
-    
+    <my-counter name = "Ethan"></my-counter>
+    <my-counter name="Eliot"></my-counter>
+    <my-hello name="Eliot">TODO</my-hello>
+
     <script>
     class myCounter extends HTMLElement {
         constructor(){
@@ -22,15 +24,22 @@
             //this.textContent = 'Hello World'
             this.style.display = 'block'
             this.textContent = `Count: ${this.count}`
+            this.innerText = 'Hello ' + this.getAttribute('name')
         }
     }
+    
+    class MyHello extends HTMLElement {
+
+        
+    }
+    
     customElements.define('my-counter', myCounter)
     
     document.createElement('div') // constructor
 
     document.body.appendChild(div) // connectedCallback
 
-
+    
     </script>
 </body>
 </html>
