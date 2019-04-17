@@ -25,7 +25,7 @@
 <body>
 
     <my-counter name = "Ethan"></my-counter>
-    <my-counter name="Eliot"></my-counter>
+    <my-timer></my-timer>
     <my-hello name="Eliot">TODO</my-hello>
 
     <script>
@@ -93,6 +93,26 @@
 
     document.body.appendChild(div) // connectedCallback
 
+    class MyTimer extends HTMLElement {
+        constructor(){
+            super()
+            this.seconds = 0;
+
+        }
+
+        connectedCallback() {
+            this.updateTime()
+            this.startTimer()
+        }
+
+        updateTime() {
+            this.textContent = `Seconds: ${this.seconds}`
+        }
+
+    }
+
+
+    customElements
     
     </script>
 </body>
