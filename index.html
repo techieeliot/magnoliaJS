@@ -10,7 +10,33 @@
 
     Lookbehind in JS regular expressions 
     Can I use ?
+-->
 
+<!--https://w3c.github.io/webcomponents/spec/custom/
+
+the idea is that great features of libraries get incorporated right into the DOM
+
+building the web components they work just like a dom element, so they can work
+in element in react, angular, or svelte.
+
+What about a nested component inside another component. 
+
+Reactjs markdown editor.
+
+*****
+
+intro to https://v3.svelte.technology/
+
+no virtual dom. surgically removes.
+
+svelte compiles everything. 
+
+===========
+part 2 afternoon
+
+It doesn't have to only be in the web component world.
+
+Richard Harris is the creator of svelte. 
 
 -->
 
@@ -113,7 +139,10 @@
             this.textContent = `Seconds: ${this.seconds}`
             this.button = document.createElement("button");
             this.button.textContent = "Reset";
-            this.button.addEventListener("click", () => this.resetTimer())
+            this.button.addEventListener("click", () => {
+                this.resetTimer()
+                this.updateTime()
+                })
             this.appendChild(this.button);
         }
 
