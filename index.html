@@ -26,7 +26,7 @@
 
     <my-counter name = "Ethan"></my-counter>
     <my-timer></my-timer>
-    <my-hello name="Eliot">TODO</my-hello>
+    <!-- <my-hello name="Eliot">TODO</my-hello> -->
 
     <script>
     class myCounter extends HTMLElement {
@@ -91,7 +91,7 @@
     
     document.createElement('div') // constructor
 
-    document.body.appendChild(div) // connectedCallback
+    // document.body.appendChild(div) // connectedCallback
 
     class MyTimer extends HTMLElement {
         constructor(){
@@ -105,14 +105,31 @@
             this.startTimer()
         }
 
+        resetTimer() {
+            this.seconds = 0;
+        }
+
         updateTime() {
             this.textContent = `Seconds: ${this.seconds}`
+            this.button = document.createElement("button");
+            this.button.textContent = "Reset";
+            this.button.addEventListener("click", () => this.resetTimer())
+            this.appendChild(this.button);
+        }
+
+        startTimer(){
+            this.interval = setInterval(() => this.tick(), 1000);
+        }
+
+        tick(){
+            this.seconds++;
+            this.updateTime();
         }
 
     }
 
 
-    customElements
+    customElements.define('my-timer', MyTimer);
     
     </script>
 </body>
