@@ -52,6 +52,11 @@
 
             this.shadowRoot.appendChild(this.clickedSpan);
         }
+
+        increment(){
+            this.count++
+            this.clickedSpan.textContent = this.count;
+        }
     }
     
     class MyHello extends HTMLElement {
