@@ -1,3 +1,5 @@
+<!-- go to: https://developers.google.com/web/fundamentals/web-components/best-practices -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +31,24 @@
     }
     
     class MyHello extends HTMLElement {
+        get name() {
+            return this.getAttribute('name')
+        }
 
+        set name (value) {
+            this.setAttribute('name')
+            this.render()
+        }
         
+        connectedCallback () {
+            const name = this.getAttribute("name");
+            this.render()
+        }
+
+        render(){
+            this.textContent = `Hello ${this.name}`;
+        }
+
     }
     
     customElements.define('my-counter', myCounter)
