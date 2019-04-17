@@ -1,5 +1,19 @@
 <!-- go to: https://developers.google.com/web/fundamentals/web-components/best-practices -->
 
+<!-- web performance from Google image this method doesn't consume as much as javascript 
+
+    This might be a good solution for mobile devises 
+
+    Shadow DOM -- all p tags have the color red. Is that a good idea? No.
+
+    What is a Shadow DOM - 
+
+    Lookbehind in JS regular expressions 
+    Can I use ?
+
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,19 +32,26 @@
     class myCounter extends HTMLElement {
         constructor(){
             super() //creating a new html element
-
+            this.attachShadow({mode: "open"}) //the is the part for the shadow DOM
             this.count = 0 
         }
 
         connectedCallback (){
             //this.textContent = 'Hello World'
             this.style.display = 'block'
-            this.textContent = `Count: ${this.count}`
-            this.innerText = 'Hello ' + this.getAttribute('name')
+            //this.shadowRoot.textContent = `Count: ${this.count}`
+            this.shadowRoot.textContent = 'Hello ' + this.getAttribute('name') //innerText won't work. Use textContent
         }
     }
     
     class MyHello extends HTMLElement {
+
+        constructor(){
+            super()
+            this.attachShadow({mode: "open"}) //the is the part for the shadow DOM
+
+        }
+
         get name() {
             return this.getAttribute('name')
         }
@@ -46,7 +67,7 @@
         }
 
         render(){
-            this.textContent = `Hello ${this.name}`;
+            this.shadowRoot.textContent = `Hello ${this.name}`;
         }
 
     }
