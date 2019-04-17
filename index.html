@@ -40,7 +40,17 @@
             //this.textContent = 'Hello World'
             this.style.display = 'block'
             //this.shadowRoot.textContent = `Count: ${this.count}`
-            this.shadowRoot.textContent = 'Hello ' + this.getAttribute('name') //innerText won't work. Use textContent
+            //this.shadowRoot.textContent = 'Hello ' + this.getAttribute('name') //innerText won't work. Use textContent
+            this.button = document.createElement("button");
+            this.button.textContent = "Click Me!";
+            this.button.addEventListener("click", () => this.increment());
+
+            this.shadowRoot.appendChild(this.button);
+
+            this.clickedSpan = document.createElement("span");
+            this.clickedSpan.textContent = this.count;
+
+            this.shadowRoot.appendChild(this.clickedSpan);
         }
     }
     
