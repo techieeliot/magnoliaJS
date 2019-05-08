@@ -14,8 +14,8 @@ The following page is code that I built during the workshop day of MagnoliaJS co
 		* HTML
 		* CSS
 		* JavaScript
-    * Reactjs
-    * Sveltjs
+		* Reactjs
+		* Sveltjs
 
    
 ### API (none used)
